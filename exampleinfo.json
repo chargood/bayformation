@@ -1,0 +1,45 @@
+[
+	{
+		"title": "Example Info 1",
+		"content": "I am some example content talking about stuff1",
+		"type": "static",
+		"tags": ["test"],
+		"deliverTo": ""
+	},
+	{
+		"title": "Example Info 2",
+		"content": "I am some example content talking about stuff2",
+		"type": "static",
+		"tags": ["test"],
+		"deliverTo": ""
+	},
+	{
+		"title": "Example Info 3",
+		"content": "I am some example content talking about stuff3",
+		"type": "static",
+		"tags": ["test"],
+		"deliverTo": ""
+	},
+	{
+		"title": "Example Message",
+		"content": "Hello Bay 9!",
+		"type": "message",
+		"tags": ["test"],
+		"deliverTo": "Bay 9"
+	},
+	{
+		"title": "Example Announcement",
+		"content": "Hello Everyone!",
+		"type": "annoucement",
+		"tags": ["test"],
+		"deliverTo": ""
+	},
+	{
+		"title": "Example Emergency",
+		"content": "EMERGENCY",
+		"type": "emergency",
+		"tags": ["test"],
+		"deliverTo": ""
+	}
+
+]

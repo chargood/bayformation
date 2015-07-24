@@ -40,6 +40,13 @@
 		"type": "emergency",
 		"tags": ["test"],
 		"deliverTo": ""
-	}
+	},
+	{
+		"title": "Example Message",
+		"content": "Hello Bay 9!",
+		"type": "message",
+		"tags": ["test"],
+		"deliverTo": "55af9fa5760699e034000002"
+	},
 
 ]

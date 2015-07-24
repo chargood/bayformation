@@ -166,22 +166,40 @@ router.route('/screen')
             if (err)
 				res.send(err);
 			
-			Schema.Screen.find(function(err, screens) {
-				if (err)
-					res.send(err);
-
-				
-				screens.forEach(function (err,screen){
-					if (err) 
+			if(info.type=="announcement"){
+			
+				Schema.Screen.find(function(err, screens) {
+					if (err)
 						res.send(err);
-					screens[screen].pushInfo.push(info.id);
-					screens[screen].save(function(err) {
+
+					
+					screens.forEach(function (err,screen){
+						if (err) 
+							res.send(err);
+						screens[screen].pushInfo.push(info.id);
+						screens[screen].save(function(err) {
+							if (err)
+								res.send(err);
+						});
+						
+					});
+				});				
+				
+			}
+			else if(info.type=="message"){
+				Schema.Screen.findById(info.deliverTo, function(err, screen) {
+					if (err)
+						res.send(err);
+					screen.pushInfo.push(info.id);
+					screen.save(function(err) {
 						if (err)
 							res.send(err);
+						
+						res.send("Message Sent");
 					});
-					
+				
 				});
-			});
+			}
         });
 	});
 	

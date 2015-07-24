@@ -238,7 +238,10 @@ router.route('/screen')
 
             res.json(infos);
         });
-    });
+    })
+	
+	
+	
 	
 	router.route('/info/:info_id')
 	

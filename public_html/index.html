@@ -30,6 +30,7 @@
 			<%});%>
 			
 			</table>
+			<a href="#/pushInfo/announcement" >Announcement</a> <a href="#/staticInfo" >Add Static Info</a>
 		</script>
 		
 		<script type="text/template" id="edit-screen-template">
@@ -44,12 +45,26 @@
 		</script>
 		
 		<script type="text/template" id="message-template">
-			<form class="message-form">
-			  <legend>Message <%= msgscreen.get("name") %></legend>
+			<form class=<%= msgscreen ? "message-form" : "announcement-form" %> >
+			  <legend><%= msgscreen ? "Message "+msgscreen.get("name") : "Announcement"%></legend>
 				<label>Message Text:</label>
-				<input name="name" type="text">
+				<input name="content" type="text">
 				<hr />
-				<input type="hidden" name="deliverTo" value="<%= msgscreen.get("_id") %>" />
+				<input type="hidden" name="deliverTo" value="<%= msgscreen ? msgscreen.get("_id") : "all"%>" />
+			<button type="submit" class="btn">Send Message</button>
+			
+			</form>
+		</script>
+		
+		<script type="text/template" id="info-template">
+			<form class="info-form" %> >
+			  <legend>New Static Information</legend>
+				<label>Message Title:</label>
+				<input name="title" type="text">
+				<label>Message Text:</label>
+				<input name="content" type="text">
+				<hr />
+				<input type="hidden" name="deliverTo" value="<%= msgscreen ? msgscreen.get("_id") : "all"%>" />
 			<button type="submit" class="btn">Send Message</button>
 			
 			</form>

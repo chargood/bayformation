@@ -65,6 +65,7 @@ var MessageView = Backbone.View.extend({
   },
   saveMessage: function (ev) {
 	var msgDetails = $(ev.currentTarget).serializeObject();
+	//console.log("MSG "+JSON.stringify(msgDetails))
 	msgDetails.title="Message"
 	msgDetails.type="message"
 	var message = new PushInfo();
@@ -92,4 +93,33 @@ var MessageView = Backbone.View.extend({
 	})
   }
 });
+
+var AnnouncementView = Backbone.View.extend({
+  el: $('#page'),
+  events: {
+	'submit .announcement-form': 'saveAnnouncement'
+  },
+  saveAnnouncement: function (ev) {
+	var annDetails = $(ev.currentTarget).serializeObject();
+	annDetails.title="Announcement"
+	annDetails.type="announcement"
+	var announcement = new PushInfo();
+	console.log("announcement sending")
+	announcement.save(annDetails, {
+	  success: function (announcement) {
+		console.log("announcement sent")
+	  }
+	});
+	router.navigate('', {trigger:true});
+	return false;
+  },
+  render: function () {
+	var that = this;
+	var template = _.template($('#message-template').html());
+	that.$el.html(template({
+		msgscreen:null
+	}))
+  }
+});
+  
   
